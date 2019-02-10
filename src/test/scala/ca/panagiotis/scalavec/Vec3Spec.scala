@@ -70,6 +70,29 @@ class Vec3Spec extends FlatSpec with Matchers {
     assert((Vec3(5.1f, 2.4f, 7.75f) dot Vec3(3.2f, 7.7f, 1.25f)) === 44.4875f +- spreadf)
   }
 
+  it should "calculate its magnitude" in {
+    assert(Vec3(5, 2, 7).length === 8.83176 +- spread)
+    assert(Vec3(5.3, 2.1, 7.75).length === 9.62094 +- spread)
+    assert(Vec3(5.3f, 2.1f, 7.75f).length === 9.62094 +- spread)
+  }
+
+   it should "be normalizable" in {
+     val actual1 = Vec3(5, 2, 7).normalize
+     val expected1 = Vec3(0.56614, 0.22646, 0.79259)
+     assert(actual1.x === expected1.x +- spread)
+     assert(actual1.y === expected1.y +- spread)
+
+     val actual2 = Vec3(5.3, 2.1, 7.75).normalize
+     val expected2 = Vec3(0.55088, 0.21827, 0.80553)
+     assert(actual2.x === expected2.x +- spread)
+     assert(actual2.y === expected2.y +- spread)
+
+     val actual3 = Vec3(5.3f, 2.1f, 7.75f).normalize
+     val expected3 = Vec3(0.55088, 0.21827, 0.80553)
+     assert(actual3.x === expected3.x +- spread)
+     assert(actual3.y === expected3.y +- spread)
+  }
+
   it should "be convertible to a Vec3[Double] object" in {
     assert(Vec3(5, 2, 7).asInstanceOf[Vec3[Double]] === Vec3(5.0, 2.0, 7.0))
   }
