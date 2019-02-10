@@ -11,6 +11,9 @@ case class Vec3[T](x : T, y : T, z: T)(implicit  num: Numeric[T]){
   def dot(that: Vec3[T]): T = Vec.dot(components, that.components)
   def normalize: Vec3[Double] = Vec3(Vec.normalize(components))
   def length: Double = Vec.length(components)
+
+  def cross(that: Vec3[T]): Vec3[T] =
+    Vec3((y * that.z) - (z * that.y), (z * that.x) - (x * that.z), (x * that.y) - (y * that.x))
 }
 
 object Vec3 {

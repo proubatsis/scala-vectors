@@ -104,6 +104,24 @@ class Vec3Spec extends FlatSpec with Matchers {
      assert(actual3.z === expected3.z +- spread)
   }
 
+  it should "calculate the cross product" in {
+    val actual1 = Vec3(5, 2, 7) cross Vec3(3, 4, 1)
+    val expected1 = Vec3(-26, 16, 14)
+    assert(actual1 === expected1)
+
+    val actual2 = Vec3(5.3, 2.1, 7.75) cross Vec3(3.4, 4.5, 1.25)
+    val expected2 = Vec3(-32.25, 19.725, 16.71)
+    assert(actual2.x === expected2.x +- spread)
+    assert(actual2.y === expected2.y +- spread)
+    assert(actual2.z === expected2.z +- spread)
+
+    val actual3 = Vec3(5.3f, 2.1f, 7.75f) cross Vec3(3.4f, 4.5f, 1.25f)
+    val expected3 = Vec3(-32.25f, 19.725f, 16.71f)
+    assert(actual3.x === expected3.x +- spreadf)
+    assert(actual3.y === expected3.y +- spreadf)
+    assert(actual3.z === expected3.z +- spreadf)
+  }
+
   it should "be convertible to a Vec3[Double] object" in {
     assert(Vec3(5, 2, 7).asInstanceOf[Vec3[Double]] === Vec3(5.0, 2.0, 7.0))
   }
