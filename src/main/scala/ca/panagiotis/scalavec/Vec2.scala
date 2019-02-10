@@ -1,12 +1,11 @@
 package ca.panagiotis.scalavec
 
 case class Vec2[T](x : T, y : T)(implicit  num: Numeric[T]){
-  import num._
   private val components = List(x, y)
 
-  def +(that: Vec2[T]) = Vec2(x + that.x, y + that.y)
-  def -(that: Vec2[T]) = Vec2(x - that.x, y - that.y)
-  def *(f: T) = Vec2(x * f, y * f)
+  def +(that: Vec2[T]) = Vec2(Vec.plus(components, that.components))
+  def -(that: Vec2[T]) = Vec2(Vec.minus(components, that.components))
+  def *(f: T) = Vec2(Vec.scale(components, f))
 
   def dot(that: Vec2[T]): T = Vec.dot(components, that.components)
   def normalize: Vec2[Double] = Vec2(Vec.normalize(components))
