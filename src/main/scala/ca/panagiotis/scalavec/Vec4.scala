@@ -1,15 +1,10 @@
 package ca.panagiotis.scalavec
 
-case class Vec4[T](x : T, y : T, z: T, w: T)(implicit  num: Numeric[T]){
-  private val components = List(x, y, z, w)
+case class Vec4[T](x : T, y : T, z: T, w: T)(implicit  num: Numeric[T]) extends Vec[T, Vec4] {
+  override val components: List[T] = List(x, y, z, w)
 
-  def +(that: Vec4[T]) = Vec4(Vec.plus(components, that.components))
-  def -(that: Vec4[T]) = Vec4(Vec.minus(components, that.components))
-  def *(f: T) = Vec4(Vec.scale(components, f))
-
-  def dot(that: Vec4[T]): T = Vec.dot(components, that.components)
-  def normalize: Vec4[Double] = Vec4(Vec.normalize(components))
-  def length: Double = Vec.length(components)
+  override def instantiate(components: List[T]): Vec4[T] = Vec4(components)
+  override def instantiateDouble(components: List[Double]): Vec4[Double] = Vec4(components)
 }
 
 object Vec4 {

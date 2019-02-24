@@ -1,16 +1,11 @@
 package ca.panagiotis.scalavec
 
-case class Vec3[T](x : T, y : T, z: T)(implicit  num: Numeric[T]){
+case class Vec3[T](x : T, y : T, z: T)(implicit  num: Numeric[T]) extends Vec[T, Vec3] {
   import num._
-  private val components = List(x, y, z)
+  override val components: List[T] = List(x, y, z)
 
-  def +(that: Vec3[T]) = Vec3(Vec.plus(components, that.components))
-  def -(that: Vec3[T]) = Vec3(Vec.minus(components, that.components))
-  def *(f: T) = Vec3(Vec.scale(components, f))
-
-  def dot(that: Vec3[T]): T = Vec.dot(components, that.components)
-  def normalize: Vec3[Double] = Vec3(Vec.normalize(components))
-  def length: Double = Vec.length(components)
+  override def instantiate(components: List[T]): Vec3[T] = Vec3(components)
+  override def instantiateDouble(components: List[Double]): Vec3[Double] = Vec3(components)
 
   def cross(that: Vec3[T]): Vec3[T] =
     Vec3((y * that.z) - (z * that.y), (z * that.x) - (x * that.z), (x * that.y) - (y * that.x))
