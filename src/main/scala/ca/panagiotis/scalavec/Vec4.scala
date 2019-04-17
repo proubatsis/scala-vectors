@@ -14,4 +14,7 @@ object Vec4 {
   }
 
   def zero[T](implicit num: Numeric[T]): Vec4[T] = Vec4(num.zero, num.zero, num.zero, num.zero)
+
+  def fromVec3[T](vec: Vec3[T], isPositionVec: Boolean)(implicit num: Numeric[T]): Vec4[T] =
+    Vec4(vec.x, vec.y, vec.z, if (isPositionVec) num.one else num.zero)
 }

@@ -18,4 +18,7 @@ object Vec3 {
   }
 
   def zero[T](implicit num: Numeric[T]): Vec3[T] = Vec3(num.zero, num.zero, num.zero)
+
+  def fromVec2[T](vec: Vec2[T], z: T)(implicit num: Numeric[T]): Vec3[T] = Vec3(vec.x, vec.y, z)
+  def fromVec4[T](vec: Vec4[T])(implicit num: Numeric[T]): Vec3[T] = Vec3(vec.x, vec.y, vec.z)
 }

@@ -118,4 +118,18 @@ class Vec4Spec extends FlatSpec with Matchers {
   it should "be convertible to a Vec4[Double] object" in {
     assert(Vec4(5, 2, 7, 1).asInstanceOf[Vec4[Double]] === Vec4(5.0, 2.0, 7.0, 1.0))
   }
+
+  it should "instantiate a position vector from a Vec3" in {
+    val v3 = Vec3(5, 2, 8)
+    val actual = Vec4.fromVec3(v3, true)
+    val expected = Vec4(5, 2, 8, 1)
+    assert(actual === expected)
+  }
+
+   it should "instantiate a direction vector from a Vec3" in {
+    val v3 = Vec3(5, 2, 8)
+    val actual = Vec4.fromVec3(v3, false)
+    val expected = Vec4(5, 2, 8, 0)
+    assert(actual === expected)
+  }
 }

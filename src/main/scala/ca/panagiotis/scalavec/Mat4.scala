@@ -40,4 +40,39 @@ object Mat4 {
       num.zero, num.one, num.zero, num.zero,
       num.zero, num.zero, num.one, num.zero,
       num.zero, num.zero, num.zero, num.one)
+
+  def createTranslation[T](x: T, y: T, z: T)(implicit num: Numeric[T]): Mat4[T] =
+    Mat4(
+      num.one, num.zero, num.zero, x,
+      num.zero, num.one, num.zero, y,
+      num.zero, num.zero, num.one, z,
+      num.zero, num.zero, num.zero, num.one)
+
+  def createScale[T](x: T, y: T, z: T)(implicit num: Numeric[T]): Mat4[T] =
+    Mat4(
+      x, num.zero, num.zero, num.zero,
+      num.zero, y, num.zero, num.zero,
+      num.zero, num.zero, z, num.zero,
+      num.zero, num.zero, num.zero, num.one)
+
+  def createRotationX(rads: Double): Mat4[Double] =
+    Mat4(
+      1, 0, 0, 0,
+      0, Math.cos(rads), -Math.sin(rads), 0,
+      0, Math.sin(rads), Math.cos(rads), 0,
+      0, 0, 0, 1)
+
+   def createRotationY(rads: Double): Mat4[Double] =
+    Mat4(
+      Math.cos(rads), 0, Math.sin(rads), 0,
+      0, 1, 0, 0,
+      -Math.sin(rads), 0, Math.cos(rads), 0,
+      0, 0, 0, 1)
+
+  def createRotationZ(rads: Double): Mat4[Double] =
+    Mat4(
+      Math.cos(rads), -Math.sin(rads), 0, 0,
+      Math.sin(rads), Math.cos(rads), 0, 0,
+      0, 0, 1, 0,
+      0, 0, 0, 1)
 }
