@@ -1,4 +1,4 @@
-package ca.panagiotis.scalavec
+package io.github.proubatsis
 
 trait Mat[T, V[T] <: Vec[T, V], F[X] <: Mat[X, V, F]] {
   def rows: List[List[T]]

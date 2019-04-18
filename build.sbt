@@ -2,8 +2,8 @@ import Dependencies._
 
 ThisBuild / scalaVersion     := "2.12.8"
 ThisBuild / version          := "0.1.0-SNAPSHOT"
-ThisBuild / organization     := "ca.panagiotis"
-ThisBuild / organizationName := "panagiotis"
+ThisBuild / organization     := "io.github.proubatsis"
+ThisBuild / organizationName := "proubatsis"
 
 lazy val root = (project in file("."))
   .settings(

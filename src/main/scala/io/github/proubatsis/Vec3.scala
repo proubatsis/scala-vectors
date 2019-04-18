@@ -1,4 +1,4 @@
-package ca.panagiotis.scalavec
+package io.github.proubatsis
 
 case class Vec3[T](x : T, y : T, z: T)(implicit  num: Numeric[T]) extends Vec[T, Vec3] {
   import num._

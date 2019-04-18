@@ -1,4 +1,4 @@
-package ca.panagiotis.scalavec
+package io.github.proubatsis
 
 case class Mat2[T](a00: T, a01: T,
                    a10: T, a11: T)(implicit num: Numeric[T]) extends Mat[T, Vec2, Mat2] {

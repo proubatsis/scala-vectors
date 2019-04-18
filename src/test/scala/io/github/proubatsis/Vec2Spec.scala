@@ -1,4 +1,4 @@
-package ca.panagiotis.scalavec
+package io.github.proubatsis
 
 import org.scalatest.{FlatSpec, Matchers}
 

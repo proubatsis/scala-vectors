@@ -1,4 +1,4 @@
-package ca.panagiotis.scalavec
+package io.github.proubatsis
 
 trait Vec[T, F[X] <: Vec[X, F]] {
   val components: List[T]

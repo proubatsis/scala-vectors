@@ -1,4 +1,4 @@
-package ca.panagiotis.scalavec
+package io.github.proubatsis
 
 case class Mat4[T](a00: T, a01: T, a02: T, a03: T,
                    a10: T, a11: T, a12: T, a13: T,

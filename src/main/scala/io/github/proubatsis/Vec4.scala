@@ -1,4 +1,4 @@
-package ca.panagiotis.scalavec
+package io.github.proubatsis
 
 case class Vec4[T](x : T, y : T, z: T, w: T)(implicit  num: Numeric[T]) extends Vec[T, Vec4] {
   override val components: List[T] = List(x, y, z, w)
